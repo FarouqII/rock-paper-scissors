@@ -5,6 +5,9 @@ const paper = document.querySelector("#PAPER");
 const scissors = document.querySelector("#SCISSORS");
 const display = document.querySelector("#display");
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     choice = Math.floor(Math.random() * 3);
     switch (choice) {
@@ -17,8 +20,10 @@ function getComputerChoice() {
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+}
 
 buttons.addEventListener('click', (event) => {
     let target = event.target.closest("button");
@@ -37,14 +42,14 @@ buttons.addEventListener('click', (event) => {
         playerChoice === "SCISSORS" && computerChoice === "PAPER"
     ) {
         playerScore++;
-        display.innerText = "You Win!"
+        display.innerText = `You win! Computer chose ${computerChoice}\nYou: ${playerScore}\nComputer: ${computerScore}`
     }
     else {
         computerScore++;
-        display.innerText = "Computer Wins!"
+        display.innerText = `Computer wins! Computer chose ${computerChoice}\nYou: ${playerScore}\nComputer: ${computerScore}`
     }
     console.log(computerChoice);
 
-    if (playerScore >= 5) {display.innerText = "You win the game!"}
-    else if (computerScore >= 5) {display.innerText = "Computer wins the game!"}
+    if (playerScore >= 5) {display.innerText = `You win the game!\nYou: ${playerScore}\nComputer: ${computerScore}`; reset()}
+    else if (computerScore >= 5) {display.innerText = `Computer wins the game!\nYou: ${playerScore}\nComputer: ${computerScore}`; reset()}
 })

@@ -23,7 +23,7 @@ body {
     padding: 100px 100px 0 100px;
     display: flex;
     justify-content: space-evenly;
-    height: 80vh;
+    height: 70vh;
 }
 
 button {
@@ -56,8 +56,7 @@ button:nth-of-type(3) span {
 }
 
 #display {
-    height: 100px;
-    width: 200px;
+    height: 15vh;
     border: 1px solid black;
     justify-self: center;
     padding: 0 0 100px 0;
@@ -65,4 +64,6 @@ button:nth-of-type(3) span {
     color: black;
     text-align: center;
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
 }
